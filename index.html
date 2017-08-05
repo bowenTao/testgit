@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d导航栏</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+			list-style:none;
+		}
+		.wrapper{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			height:400px;
+			width:620px;
+		}
+
+		.wrapper .stage{
+			transform-style:preserve-3d;
+			perspective:9999px;
+			transform:translateZ(-30px);
+			
+		}
+		.wrapper .stage li{
+			float:left;
+			/*transform:rotateX(90deg);*/
+		}
+		.wrapper .stage li div{
+			height:60px;
+			width:100px;
+			line-height:60px;
+			color:#999999;
+			font-size:25px;
+			font-weight:bold;
+			font-family:arial;
+			text-align:center;
+			border-left:0.3px solid #aaa;
+			border-right:0.3px solid #aaa;
+			border-top:0.3px solid #aaa;
+			cursor:pointer;
+		}
+		/*class = "active" 的div 高为60px 宽为100px起了很大的作用*/
+		.wrapper .stage li .face,
+		.wrapper .stage li .active .face1{
+			background:linear-gradient(45deg, #99cccc, #cccccc);
+			transform:translateZ(30px);
+			transition:all 300ms ease-out;
+
+		}
+		.wrapper .stage li .bottom,
+		.wrapper .stage li .active .bottom1{
+			background:linear-gradient(45deg, #99cccc, #336666);
+			transform: rotateX(90deg) translateZ(30px);
+			transition:all 300ms ease-out;
+		}
+		.wrapper .stage li:hover .face,
+		.wrapper .stage .active:hover .face1{
+			transform-origin:100% 100%;
+			transform: rotateX(90deg) translateZ(60px);
+		}
+		.wrapper .stage li:hover .bottom,
+		.wrapper .stage .active:hover .bottom1{
+			transform-origin:0% 0%;
+			transform:translateY(-60px) rotateX(0deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+			
+		<ul class="stage">
+			<li>
+				<div class="face">html</div>
+				<div class="bottom">html</div>
+			</li>
+			<li>
+				<div class="face">css</div>
+				<div class="bottom">css</div>
+			</li>
+			<li>
+				<div class="face">js</div>
+				<div class="bottom">js
+					<div class="active">
+						<div class="face1">DOM</div>
+						<div class="bottom1">DOM</div>
+					</div>
+					<div class="active">
+						<div class="face1">BOM</div>
+						<div class="bottom1">BOM</div>
+					</div>
+					<div class="active">
+						<div class="face1">ES</div>
+						<div class="bottom1">ES</div>
+					</div>					
+				</div>
+			</li>
+			<li>
+				<div class="face">网络</div>
+				<div class="bottom">网络
+					<div class="active">
+						<div class="face1">ajax</div>
+						<div class="bottom1">ajax</div>
+					</div>
+					<div class="active">
+						<div class="face1">jsonp</div>
+						<div class="bottom1">jsonp</div>
+					</div>
+					<div class="active">
+						<div class="face1">cookie</div>
+						<div class="bottom1">cookie</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="face">html5</div>
+				<div class="bottom">html5
+					<div class="active">
+						<div class="face1">canvas</div>
+						<div class="bottom1">canvas</div>
+					</div>
+					<div class="active">
+						<div class="face1">SVG</div>
+						<div class="bottom1">SVG</div>
+					</div>					
+				</div>
+			</li>
+			<li>
+				<div class="face">node</div>
+				<div class="bottom">node</div>
+			</li>
+		</ul>
+
+	</div>
+</body>
+</html>
